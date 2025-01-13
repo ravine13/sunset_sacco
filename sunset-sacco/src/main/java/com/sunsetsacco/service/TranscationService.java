@@ -28,7 +28,7 @@ public class TranscationService {
         return transcationRepository.findById(id).orElse(null);
     }
     public Transaction updateTransaction(Transaction transaction){
-        return transaction.save(transaction);
+        return transcationRepository.save(transaction);
     }
     public void deleteTranscation(Integer id){
         transcationRepository.deleteById(id);

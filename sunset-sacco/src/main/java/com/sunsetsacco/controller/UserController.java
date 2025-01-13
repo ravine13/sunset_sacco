@@ -37,7 +37,7 @@ public class UserController {
 
     @PutMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> updateUser(@PathVariable Integer id, @RequestBody User user) {
-        User updatedUser = userService.updateUser(id, user);
+        User updatedUser = userService.updateUser(user);
         return ResponseEntity.ok(updatedUser);
     }
 

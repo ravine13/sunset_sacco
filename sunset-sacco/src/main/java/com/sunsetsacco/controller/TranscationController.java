@@ -13,6 +13,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.sunsetsacco.service.TranscationService;
+
+import com.sunsetsacco.entities.Transaction;
 
 
 @RestController
@@ -26,7 +29,7 @@ public class TranscationController {
     }
     @PostMapping(value = "/register", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> registerTranscation(@RequestBody Transcation transcation){
-        Transction savedtranscation = transcationService.saveBarber(barber)
+        Transction savedtranscation = transcationService.saveTransaction(transcation);
         return ResponseEntity.ok(savedtranscation);
     }
 
