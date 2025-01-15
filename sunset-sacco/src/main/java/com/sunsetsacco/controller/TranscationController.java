@@ -28,13 +28,13 @@ public class TranscationController {
         this.transcationService = transcationService;
     }
     @PostMapping(value = "/register", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<?> registerTranscation(@RequestBody Transcation transcation){
-        Transction savedtranscation = transcationService.saveTransaction(transcation);
+    public ResponseEntity<?> registerTranscation(@RequestBody Transaction transacation){
+        Transaction savedtranscation = transcationService.saveTransaction(transacation);
         return ResponseEntity.ok(savedtranscation);
     }
 
     @GetMapping(value = "/all", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<?> getAllTranscations(){
+    public ResponseEntity<?> getAllTransacations(){
         return ResponseEntity.ok(transcationService.getAllTranscations());
     }
 

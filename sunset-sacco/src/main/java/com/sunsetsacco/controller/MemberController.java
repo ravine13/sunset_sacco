@@ -36,7 +36,7 @@ public class MemberController {
 
     @PutMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> updateMember(@PathVariable Integer id, @RequestBody Member member) {
-        Member updatedMember = memberService.updateMember(id, member);
+        Member updatedMember = memberService.updateMember(member);
         return ResponseEntity.ok(updatedMember);
     }
 
