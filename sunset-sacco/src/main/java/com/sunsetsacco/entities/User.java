@@ -33,5 +33,10 @@ public class User {
 
     @CreationTimestamp
     @Column(name="created_at", updatable = false)
-    private LocalDateTime created_at;  
+    private LocalDateTime created_at;
+
+    public String getPassword() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getPassword'");
+    }  
 }

@@ -14,5 +14,7 @@ import com.sunsetsacco.entities.User;
 public interface UserRepository extends JpaRepository<User,Integer>{
     @Query("SELECT r FROM User r WHERE r.user_id = :id")
     Optional<User> findUserById(@Param("id") Integer id);
+
+    Optional<User> findUserByUsername(String username);
     
 }

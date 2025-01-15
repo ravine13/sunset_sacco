@@ -9,12 +9,15 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.BadCredentialsException;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.sunsetsacco.repository.UserRepository;
+import com.sunsetsacco.security.JwtUtil;
 
 import model.AuthenticationResponse;
 
@@ -38,7 +41,7 @@ public class AuthController {
 
 
     @PostMapping("/authenticate")
-    public ResponseEntity<?> createAuthenticationToken(@RequestBody Authentication authenticationRequest) throws Exception
+    public ResponseEntity<?> createAuthenticationToken(@RequestBody Authentication authenticationRequest) throws Exception {
     try {
         authenicationManager.authenticate(
             new usernamePasswordAuthenticationToken(authenticationRequest.getUsername(),authenticationRequest.getPassword())
@@ -53,6 +56,7 @@ public class AuthController {
     final String jwt = jwtUtil.generateToken(userDetails);
 
     return ResponseEntity.ok(new AuthenticationResponse(jwt));
+}
 
     @PostMapping("/register")
     public ResponseEntity<?> registerUser(@RequestBody User user){

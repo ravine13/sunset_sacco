@@ -14,27 +14,32 @@ public class UserService {
     private final UserRepository userRepository;
 
     @Autowired
-    public UserService(UserRepository userRepository) {
+    public UserService(UserRepository userRepository){
         this.userRepository = userRepository;
     }
-
-    public User saveUser(User user) {
+    //create
+    public User saveUser(User user){
         return userRepository.save(user);
     }
-
-    public List<User> getAllUsers() {
+    //get
+    public Iterable<User> getAllUsers(){
         return userRepository.findAll();
     }
-
+    //getby id
     public User getUserById(Integer id) {
         return userRepository.findById(id).orElse(null);
     }
-
+    //getby name
+    public User getUserByUserName(String username) {
+        return userRepository.findUserByUsername(username).orElse(null);
+    }
+    //update
     public User updateUser(User user){
         return userRepository.save(user);
     }
-
-    public void deleteUser(Integer id) {
-        userRepository.deleteById(id);  
+    //delete
+    public void deleteUser(Integer id){
+        userRepository.deleteById(id);
     }
+
 }
