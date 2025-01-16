@@ -59,8 +59,8 @@ public class AuthController {
         if (userRepository.findUserByUsername(user.getUsername()).isPresent()) {
             return ResponseEntity.status(HttpStatus.CONFLICT).body("Username already exists");
         }
-
-        user.setPassword(passwordEncoder.encode(user.getPassword()));
+//check if its correct
+        user.setPassword_hash(passwordEncoder.encode(user.getPassword()));
         userRepository.save(user);
         return ResponseEntity.status(HttpStatus.CREATED).body("User registered successfully");
     }
