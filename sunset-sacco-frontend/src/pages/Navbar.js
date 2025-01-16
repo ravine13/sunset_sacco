@@ -1,16 +1,18 @@
 import React, { useState } from "react";
+import { FaCaretDown } from "react-icons/fa";  // Import the dropdown icon
 
 const Navbar = () => {
-  const [menuOpen, setMenuOpen] = useState(false);
-  const [joinUsOpen, setJoinUsOpen] = useState(false);
-  const [loanOpen, setLoanOpen] = useState(false);
-  const [serviceOpen, setServiceOpen] = useState(false);
+  const [activeDropdown, setActiveDropdown] = useState(null);
+
+  const handleDropdownToggle = (dropdown) => {
+    setActiveDropdown(activeDropdown === dropdown ? null : dropdown);
+  };
 
   return (
     <header className="flex border-b border-1 bg-white font-sans min-h-[70px] tracking-wide relative z-50">
       <div className="w-full flex flex-wrap items-center justify-between gap-6 sm:px-10 px-6 py-3 relative">
         {/* Logo */}
-        <a href="#" className="font-semibold text-xl text-[#FF5733]">
+        <a href="/" className="font-semibold text-xl text-[#FF5733]">
           Sunset SACCO
         </a>
 
@@ -19,14 +21,14 @@ const Navbar = () => {
           <ul className="lg:flex lg:gap-x-10 space-y-3 lg:space-y-0">
             {/* Home */}
             <li>
-              <a href="#" className="hover:text-[#FF5733] text-gray-500 font-semibold text-[15px]">
+              <a href="/" className="hover:text-[#FF5733] text-gray-500 font-semibold text-[15px]">
                 Home
               </a>
             </li>
 
             {/* About Us */}
             <li>
-              <a href="#" className="hover:text-[#FF5733] text-gray-500 font-semibold text-[15px]">
+              <a href="/about" className="hover:text-[#FF5733] text-gray-500 font-semibold text-[15px]">
                 About Us
               </a>
             </li>
@@ -34,27 +36,26 @@ const Navbar = () => {
             {/* Join Us Dropdown */}
             <li className="relative">
               <button
-                className="flex items-center gap-1 hover:text-[#FF5733] text-gray-500 font-semibold text-[15px]"
-                onClick={() => setJoinUsOpen(!joinUsOpen)}
+                className="hover:text-[#FF5733] text-gray-500 font-semibold text-[15px] flex items-center"
+                onClick={() => handleDropdownToggle("joinUs")}
               >
-                Join Us
-                <span>{joinUsOpen ? "▲" : "▼"}</span> {/* Add dropdown icon */}
+                Join Us <FaCaretDown className="ml-2" />
               </button>
-              {joinUsOpen && (
+              {activeDropdown === "joinUs" && (
                 <div className="absolute bg-white shadow-lg p-4 z-50 mt-2">
                   <ul className="space-y-2">
                     <li>
-                      <a href="#" className="text-[#FF5733] font-semibold text-[15px]">
+                      <a href="/membership" className="text-[#FF5733] font-semibold text-[15px]">
                         Membership
                       </a>
                     </li>
                     <li>
-                      <a href="#" className="text-[#FF5733] font-semibold text-[15px]">
+                      <a href="/benefits" className="text-[#FF5733] font-semibold text-[15px]">
                         Benefits
                       </a>
                     </li>
                     <li>
-                      <a href="#" className="text-[#FF5733] font-semibold text-[15px]">
+                      <a href="/eligibility" className="text-[#FF5733] font-semibold text-[15px]">
                         Membership Eligibility
                       </a>
                     </li>
@@ -66,22 +67,21 @@ const Navbar = () => {
             {/* Get A Loan Now Dropdown */}
             <li className="relative">
               <button
-                className="flex items-center gap-1 hover:text-[#FF5733] text-gray-500 font-semibold text-[15px]"
-                onClick={() => setLoanOpen(!loanOpen)}
+                className="hover:text-[#FF5733] text-gray-500 font-semibold text-[15px] flex items-center"
+                onClick={() => handleDropdownToggle("loan")}
               >
-                Get A Loan Now
-                <span>{loanOpen ? "▲" : "▼"}</span> {/* Add dropdown icon */}
+                Get A Loan Now <FaCaretDown className="ml-2" />
               </button>
-              {loanOpen && (
+              {activeDropdown === "loan" && (
                 <div className="absolute bg-white shadow-lg p-4 z-50 mt-2">
                   <ul className="space-y-2">
                     <li>
-                      <a href="#" className="text-[#FF5733] font-semibold text-[15px]">
+                      <a href="/loan-requirements" className="text-[#FF5733] font-semibold text-[15px]">
                         General Loan Requirements
                       </a>
                     </li>
                     <li>
-                      <a href="#" className="text-[#FF5733] font-semibold text-[15px]">
+                      <a href="/bosa-loan" className="text-[#FF5733] font-semibold text-[15px]">
                         Back Office Saving Loan Activity (BOSA)
                       </a>
                     </li>
@@ -93,27 +93,26 @@ const Navbar = () => {
             {/* Services Dropdown */}
             <li className="relative">
               <button
-                className="flex items-center gap-1 hover:text-[#FF5733] text-gray-500 font-semibold text-[15px]"
-                onClick={() => setServiceOpen(!serviceOpen)}
+                className="hover:text-[#FF5733] text-gray-500 font-semibold text-[15px] flex items-center"
+                onClick={() => handleDropdownToggle("service")}
               >
-                Services
-                <span>{serviceOpen ? "▲" : "▼"}</span> {/* Add dropdown icon */}
+                Services <FaCaretDown className="ml-2" />
               </button>
-              {serviceOpen && (
+              {activeDropdown === "service" && (
                 <div className="absolute bg-white shadow-lg p-4 z-50 mt-2">
                   <ul className="space-y-2">
                     <li>
-                      <a href="#" className="text-[#FF5733] font-semibold text-[15px]">
+                      <a href="/mobile-banking" className="text-[#FF5733] font-semibold text-[15px]">
                         Mobile Banking
                       </a>
                     </li>
                     <li>
-                      <a href="#" className="text-[#FF5733] font-semibold text-[15px]">
+                      <a href="/internet-banking" className="text-[#FF5733] font-semibold text-[15px]">
                         Internet Banking
                       </a>
                     </li>
                     <li>
-                      <a href="#" className="text-[#FF5733] font-semibold text-[15px]">
+                      <a href="/contribution" className="text-[#FF5733] font-semibold text-[15px]">
                         Contribution
                       </a>
                     </li>
@@ -124,31 +123,31 @@ const Navbar = () => {
 
             {/* Feedback */}
             <li>
-              <a href="#" className="hover:text-[#FF5733] text-gray-500 font-semibold text-[15px]">
+              <a href="/feedback" className="hover:text-[#FF5733] text-gray-500 font-semibold text-[15px]">
                 Feedback
               </a>
             </li>
 
             {/* News & Events */}
             <li>
-              <a href="#" className="hover:text-[#FF5733] text-gray-500 font-semibold text-[15px]">
+              <a href="/news-events" className="hover:text-[#FF5733] text-gray-500 font-semibold text-[15px]">
                 News & Events
               </a>
             </li>
 
             {/* Gallery */}
             <li>
-              <a href="#" className="hover:text-[#FF5733] text-gray-500 font-semibold text-[15px]">
+              <a href="/gallery" className="hover:text-[#FF5733] text-gray-500 font-semibold text-[15px]">
                 Gallery
               </a>
             </li>
 
             {/* Sign In / Register */}
             <li className="flex gap-4">
-              <a href="#" className="hover:text-[#FF5733] text-gray-500 font-semibold text-[15px]">
+              <a href="/signin" className="hover:text-[#FF5733] text-gray-500 font-semibold text-[15px]">
                 Sign In
               </a>
-              <a href="#" className="hover:text-[#FF5733] text-gray-500 font-semibold text-[15px]">
+              <a href="/register" className="hover:text-[#FF5733] text-gray-500 font-semibold text-[15px]">
                 Register
               </a>
             </li>
