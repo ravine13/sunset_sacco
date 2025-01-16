@@ -36,3 +36,13 @@
     transform: rotate(360deg);
   }
 }
+
+.App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Ensures the content takes up full height of the screen */
+}
+
+main {
+  flex-grow: 1; /* This will make sure the content grows to take available space */
+}
