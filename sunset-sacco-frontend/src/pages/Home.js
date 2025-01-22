@@ -40,12 +40,35 @@ const HomePage = () => {
           <h2 className="text-3xl font-bold mb-8">What Our Members Say</h2>
           <div className="space-y-8">
             {[
-              { name: 'Jane Doe', feedback: 'Sunset SACCO transformed my finances.' },
-              { name: 'John Smith', feedback: 'Reliable and trustworthy services.' },
+              {
+                name: 'John Smith',
+                feedback: 'Reliable and trustworthy services.',
+                image: 'https://readymadeui.com/profile_2.webp',
+              },
+              {
+                name: 'Brian Johnson',
+                feedback: 'Excellent customer support!',
+                image: 'https://readymadeui.com/profile_3.webp',
+              },
+              {
+                name: 'Michael Brown',
+                feedback: 'Great savings options.',
+                image: 'https://readymadeui.com/profile_4.webp',
+              },
             ].map((testimonial, index) => (
-              <div key={index} className="p-6 bg-gray-50 rounded-lg shadow-lg">
-                <p className="text-lg italic">\"{testimonial.feedback}\"</p>
-                <h4 className="mt-4 text-lg font-bold">- {testimonial.name}</h4>
+              <div
+                key={index}
+                className="p-6 bg-gray-50 rounded-lg shadow-lg flex items-center gap-6 text-left"
+              >
+                <img
+                  src={testimonial.image}
+                  alt={testimonial.name}
+                  className="w-14 h-14 rounded-full"
+                />
+                <div>
+                  <p className="text-lg italic">"{testimonial.feedback}"</p>
+                  <h4 className="mt-4 text-lg font-bold">- {testimonial.name}</h4>
+                </div>
               </div>
             ))}
           </div>
