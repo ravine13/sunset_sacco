@@ -82,8 +82,8 @@ const Navbar = () => {
             <Dropdown
               label="Get A Loan Now"
               items={[
-                { label: "General Loan Requirements", path: "/loan-requirements" },
-                { label: "Back Office Saving Loan Activity (BOSA)", path: "/bosa-loan" },
+                { label: "General Loan Requirements", path: "/requestLoan" },
+                { label: "Back Office Saving Loan Activity (BOSA)", path: "/bosa" },
               ]}
               activeDropdown={activeDropdown === "loan"}
               toggleDropdown={() => handleDropdownToggle("loan")}

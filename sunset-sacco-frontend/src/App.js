@@ -9,6 +9,9 @@ import About from "./pages/About";
 import Membership from "./membership/Membership";
 import Eligibility from "./membership/Eligibility";
 import Benefits from "./membership/Benefits";
+import RequestLoan from "./Loan/RequestLoan";
+import Bosa from "./Loan/Bosa";
+import Fosa from "./Loan/Fosa";
 
 function App() {
   return (
@@ -23,6 +26,10 @@ function App() {
           <Route path="/benefits" element={<Benefits />}  />
           <Route path="/eligibility" element={<Eligibility />}  />
           <Route path="/membership" element={<Membership />}  />
+          <Route path="/bosa" element={<Bosa />}  />
+          <Route path="/fosa" element={<Fosa />}  />
+          <Route path="/requestLoan" element={<RequestLoan />}  />
+
         </Routes>
       </main>
       <Footer /> 
