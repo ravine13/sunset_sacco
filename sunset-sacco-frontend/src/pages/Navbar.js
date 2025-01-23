@@ -101,21 +101,6 @@ const Navbar = () => {
               activeDropdown={activeDropdown === "service"}
               toggleDropdown={() => handleDropdownToggle("service")}
             />
-
-            {/* Feedback */}
-            <li>
-              <Link to="/feedback" className="hover:text-[#FF5733] text-gray-500 font-semibold text-[15px]">
-                Feedback
-              </Link>
-            </li>
-
-            {/* News & Events */}
-            <li>
-              <Link to="/news-events" className="hover:text-[#FF5733] text-gray-500 font-semibold text-[15px]">
-                News & Events
-              </Link>
-            </li>
-
             {/* Sign In / Register */}
             <li className="flex gap-4">
               <Link to="/signin" className="hover:text-[#FF5733] text-gray-500 font-semibold text-[15px]">
