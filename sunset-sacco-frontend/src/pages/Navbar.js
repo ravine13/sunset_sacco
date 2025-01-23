@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { FaCaretDown } from "react-icons/fa";  // Import the dropdown icon
+import { FaCaretDown } from "react-icons/fa"; 
 import { Link } from "react-router-dom";
 
 const Dropdown = ({ label, items, activeDropdown, toggleDropdown }) => (

@@ -13,11 +13,14 @@ const Benefits = () => {
   ];
 
   return (
-    <section className="benefits">
-      <h2>Benefits</h2>
-      <ul>
+    <section className="bg-gray-100 p-8 rounded-lg shadow-md max-w-3xl mx-auto mt-8">
+      <h2 className="text-3xl font-semibold text-gray-800 text-center mb-6">Benefits</h2>
+      <ul className="space-y-4">
         {benefitsList.map((benefit, index) => (
-          <li key={index}>{benefit}</li>
+          <li key={index} className="flex items-start text-lg text-gray-700">
+            <span className="text-green-500 mr-3">✔</span>
+            {benefit}
+          </li>
         ))}
       </ul>
     </section>
