@@ -12,6 +12,11 @@ import Benefits from "./membership/Benefits";
 import RequestLoan from "./Loan/RequestLoan";
 import Bosa from "./Loan/Bosa";
 import Fosa from "./Loan/Fosa";
+import Contributions from "./Services/contribution";
+import Welfare from "./Services/welfareFund";
+import InternetBanking from "./Services/InternetBanking";
+import MobileBanking from "./Services/MobileBanking";
+
 
 function App() {
   return (
@@ -29,6 +34,10 @@ function App() {
           <Route path="/bosa" element={<Bosa />}  />
           <Route path="/fosa" element={<Fosa />}  />
           <Route path="/requestLoan" element={<RequestLoan />}  />
+          <Route path="/contributions" element={<Contributions />} />
+          <Route path="/welfare" element={<Welfare />} />
+          <Route path="/interneBanking" element={<InternetBanking />} />
+          <Route path="/mobileBanking" element={<MobileBanking />} />
 
         </Routes>
       </main>

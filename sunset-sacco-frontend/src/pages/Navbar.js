@@ -93,9 +93,10 @@ const Navbar = () => {
             <Dropdown
               label="Services"
               items={[
-                { label: "Mobile Banking", path: "/mobile-banking" },
-                { label: "Internet Banking", path: "/internet-banking" },
-                { label: "Contribution", path: "/contribution" },
+                { label: "Mobile Banking", path: "/mobileBanking" },
+                { label: "Internet Banking", path: "/interneBanking" },
+                { label: "Contribution", path: "/contributions" },
+                { label: "Welfare Fund", path: "/welfare" },
               ]}
               activeDropdown={activeDropdown === "service"}
               toggleDropdown={() => handleDropdownToggle("service")}
